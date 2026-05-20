@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membaca Berita - Madrasah</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Membaca Berita - MI Zainul Anwar</title>
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1ggCDeDWm_U36NAwNXVocmeSDto6PH9LT">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome untuk Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -26,7 +24,7 @@
                             600: '#16a34a',
                             700: '#15803d',
                             800: '#166534',
-                            900: '#14532d', // Hijau Tua Utama
+                            900: '#14532d',
                         }
                     }
                 }
@@ -51,7 +49,6 @@
         .wa-pulse {
             animation: pulse-green 2s infinite;
         }
-        /* Styling khusus untuk konten artikel */
         #detail-konten p {
             margin-bottom: 1.5rem;
         }
@@ -65,13 +62,9 @@
     </style>
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen relative">
-
-    <!-- Tombol WhatsApp Melayang -->
     <a id="wa-floating-btn" href="#" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-all duration-300 wa-pulse hidden" title="Hubungi Kami via WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
-
-    <!-- Navbar -->
     <nav id="navbar" class="fixed w-full z-50 bg-madrasah-900 shadow-lg py-2 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -81,15 +74,14 @@
                     <a href="index.html" class="font-bold text-lg sm:text-xl truncate max-w-[200px] sm:max-w-none" id="nav-nama-sekolah">Memuat...</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <!-- Tautan disesuaikan untuk Multi-Page -->
                     <a href="index.html" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Beranda</a>
                     <a href="profil.html" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Profil</a>
                     <a href="berita.html" class="text-yellow-400 border-b-2 border-yellow-400 transition-colors font-bold tracking-wide">Berita</a>
                     <a href="index.html#guru" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Guru & Staff</a>
                     <a href="index.html#galeri" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Galeri</a>
                     <a href="index.html#faq" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">FAQ</a>
+                    <a href="portal.html" class="bg-yellow-400 text-madrasah-900 px-5 py-2 rounded-full hover:bg-yellow-300 transition-all font-bold tracking-wide shadow-md flex items-center"><i class="fa-solid fa-link mr-2"></i> Portal</a>
                 </div>
-                <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-white hover:text-yellow-400 focus:outline-none">
                         <i class="fa-solid fa-bars text-2xl"></i>
@@ -97,7 +89,6 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-madrasah-800 shadow-xl absolute w-full left-0 top-full border-t border-madrasah-700">
             <a href="index.html" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Beranda</a>
             <a href="profil.html" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Profil</a>
@@ -105,32 +96,24 @@
             <a href="index.html#guru" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Guru & Staff</a>
             <a href="index.html#galeri" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Galeri</a>
             <a href="index.html#faq" class="block px-4 py-3 hover:bg-madrasah-700 font-medium">FAQ</a>
+            <a href="portal.html" class="block px-4 py-3 bg-yellow-400 text-madrasah-900 font-bold border-b border-madrasah-700 flex items-center"><i class="fa-solid fa-link mr-3"></i> Portal Layanan</a>
         </div>
     </nav>
-
-    <!-- Main Article Content (Ada padding top agar tidak tertutup navbar fixed) -->
     <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-32 w-full relative z-20 bg-white shadow-xl sm:rounded-2xl sm:my-10 min-h-[70vh]">
-        
-        <!-- Breadcrumb / Kembali -->
         <div class="mb-8 border-b border-gray-100 pb-4">
             <a href="berita.html" class="text-madrasah-600 hover:text-madrasah-800 font-semibold inline-flex items-center transition-colors">
                 <i class="fa-solid fa-arrow-left-long mr-2"></i> Kembali ke Daftar Berita
             </a>
         </div>
-
         <div id="loading-detail" class="flex justify-center py-20">
             <div class="loader ease-linear rounded-full border-4 border-t-4 border-madrasah-600 h-16 w-16"></div>
         </div>
-
-        <!-- Tampilan Error (Jika ID tidak ada atau berita tidak ditemukan) -->
         <div id="error-detail" class="hidden text-center py-16">
             <i class="fa-solid fa-file-circle-xmark text-7xl text-gray-300 mb-6 block"></i>
             <h2 class="text-3xl font-extrabold text-gray-800 mb-4">Berita Tidak Ditemukan</h2>
             <p class="text-lg text-gray-600 mb-8">Maaf, artikel yang Anda cari mungkin telah dihapus atau tautannya salah.</p>
             <a href="berita.html" class="inline-block bg-madrasah-600 text-white font-bold py-3 px-8 rounded-full hover:bg-madrasah-700 transition-colors shadow-md">Jelajahi Berita Lainnya</a>
         </div>
-
-        <!-- Tampilan Konten Artikel -->
         <article id="content-detail" class="hidden">
             <header class="mb-8 text-center md:text-left">
                 <span id="detail-kategori" class="bg-madrasah-100 text-madrasah-700 font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-widest inline-block mb-4 border border-madrasah-200">Kategori</span>
@@ -139,17 +122,11 @@
                     <i class="fa-regular fa-calendar-days mr-2"></i> <span id="detail-tanggal">Tanggal</span>
                 </div>
             </header>
-
             <figure class="w-full aspect-video rounded-3xl overflow-hidden mb-12 shadow-lg bg-gray-100 relative group">
                 <img id="detail-gambar" src="" alt="Thumbnail Berita" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
             </figure>
-
-            <!-- Area Teks Berita -->
             <div id="detail-konten" class="text-lg text-gray-700 leading-relaxed text-justify">
-                <!-- Isi berita dirender di sini -->
             </div>
-            
-            <!-- Bagikan Artikel -->
             <div class="mt-16 pt-8 border-t-2 border-dashed border-gray-200">
                 <h4 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Bagikan Artikel Ini:</h4>
                 <div class="flex space-x-3">
@@ -159,10 +136,7 @@
                 </div>
             </div>
         </article>
-
     </main>
-
-    <!-- Footer -->
     <footer class="bg-madrasah-900 text-gray-300 py-12 mt-auto border-t-4 border-yellow-400">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-10">
             <div>
@@ -172,9 +146,9 @@
                 </h3>
                 <p class="text-sm mb-6 leading-relaxed text-gray-400" id="footer-alamat">Alamat belum tersedia.</p>
                 <div class="flex space-x-5">
-                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/mi.z.anwar.7" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@mizainulanwar" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://www.youtube.com/@mizainulanwar" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
             <div>
@@ -206,19 +180,12 @@
             &copy; <span id="current-year"></span> Hak Cipta Dilindungi. Dibangun dengan <i class="fa-solid fa-heart text-red-500 mx-1"></i> dan Teknologi Web Modern.
         </div>
     </footer>
-
-    <!-- Script API dan Logika Halaman Detail -->
     <script>
         const API_URL = "https://script.google.com/macros/s/AKfycbw53tk9OLk4e4O2LzDkKHflkwQrVdMVoiaoHSsisi-aeuA7eVBKiQgVuJLg17PNetqo/exec";
-        
         document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
-
-        // Fetch Fungsi Global
         async function fetchData(action) {
             try {
                 const response = await fetch(`${API_URL}?action=${action}`);
@@ -231,8 +198,6 @@
                 return null;
             }
         }
-
-        // Muat Data Profil Umum (Navbar & Footer)
         async function loadCommonData() {
             const data = await fetchData('getProfil');
             if (data && Object.keys(data).length > 0) {
@@ -262,18 +227,12 @@
                 }
             }
         }
-
-        // Muat Detail Berita Spesifik berdasarkan Parameter ?id=
         async function loadDetailBerita() {
-            // Ambil ID dari URL browser
             const urlParams = new URLSearchParams(window.location.search);
             const beritaId = urlParams.get('id');
-
             const loading = document.getElementById('loading-detail');
             const errorDiv = document.getElementById('error-detail');
             const contentDiv = document.getElementById('content-detail');
-
-            // Jika URL tidak memiliki param ?id=
             if (!beritaId) {
                 loading.style.display = 'none';
                 errorDiv.classList.remove('hidden');
@@ -284,14 +243,9 @@
             loading.style.display = 'none';
 
             if (data && data.length > 0) {
-                // Cari berita yang ID-nya cocok dengan URL
                 const beritaDitemukan = data.find(b => String(b.ID) === String(beritaId));
-
                 if (beritaDitemukan) {
-                    // Update metadata halaman
                     document.title = `${beritaDitemukan.Judul} - Madrasah`;
-
-                    // Isi data ke DOM
                     document.getElementById('detail-kategori').textContent = beritaDitemukan.Kategori || 'Umum';
                     document.getElementById('detail-judul').textContent = beritaDitemukan.Judul || 'Tanpa Judul';
                     document.getElementById('detail-tanggal').textContent = beritaDitemukan.Tanggal || '-';
@@ -301,37 +255,25 @@
                     imgEl.src = beritaDitemukan.Link_Gambar_Thumbnail || fallbackImg;
                     imgEl.onerror = () => { imgEl.src = fallbackImg; };
 
-                    // Mengatur Konten Berita
-                    // Memungkinkan admin memasukkan HTML <p> <b> di Google Sheets. Jika tidak, enter biasa diubah jadi <br>
                     const kontenAsli = beritaDitemukan.Konten || 'Konten berita belum tersedia.';
-                    // Mendeteksi jika sudah ada tag HTML bawaan, jika tidak, kita format line break-nya
                     if(kontenAsli.includes('<p>') || kontenAsli.includes('<br>')) {
                         document.getElementById('detail-konten').innerHTML = kontenAsli;
                     } else {
-                        // Jika murni teks, ubah baris baru menjadi tag <p>
                         const formatParagraf = kontenAsli.split('\n')
                                                 .filter(p => p.trim() !== '')
                                                 .map(p => `<p>${p}</p>`)
                                                 .join('');
                         document.getElementById('detail-konten').innerHTML = formatParagraf;
                     }
-
-                    // Tampilkan struktur konten
                     contentDiv.classList.remove('hidden');
 
                 } else {
-                    // ID ada di URL, tapi tidak ditemukan di database
                     errorDiv.classList.remove('hidden');
                 }
             } else {
-                // Gagal fetch atau data kosong
                 errorDiv.classList.remove('hidden');
             }
         }
-
-        // ==========================================
-        // Fungsi Bagikan (Share)
-        // ==========================================
         const currentUrl = encodeURIComponent(window.location.href);
         
         function getJudulForShare() {
@@ -352,7 +294,6 @@
                 alert('Tautan artikel berhasil disalin!');
             }).catch(err => {
                 console.error('Gagal menyalin:', err);
-                // Fallback method untuk browser tua/iframe
                 const textArea = document.createElement("textarea");
                 textArea.value = window.location.href;
                 document.body.appendChild(textArea);
@@ -367,7 +308,6 @@
             });
         }
 
-        // Inisialisasi
         document.addEventListener('DOMContentLoaded', () => {
             loadCommonData();
             loadDetailBerita();
