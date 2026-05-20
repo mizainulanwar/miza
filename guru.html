@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenaga Pendidik & Kependidikan - Madrasah</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Tenaga Pendidik & Kependidikan - MI Zainul Anwar</title>
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1ggCDeDWm_U36NAwNXVocmeSDto6PH9LT">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome untuk Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -26,7 +24,7 @@
                             600: '#16a34a',
                             700: '#15803d',
                             800: '#166534',
-                            900: '#14532d', // Hijau Tua Utama
+                            900: '#14532d',
                         }
                     }
                 }
@@ -54,13 +52,10 @@
     </style>
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen relative">
-
-    <!-- Tombol WhatsApp Melayang -->
     <a id="wa-floating-btn" href="#" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-all duration-300 wa-pulse hidden" title="Hubungi Kami via WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Navbar -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-2 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -70,15 +65,14 @@
                     <a href="index.html" class="font-bold text-lg sm:text-xl truncate max-w-[200px] sm:max-w-none" id="nav-nama-sekolah">Memuat...</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <!-- Tautan disesuaikan untuk Multi-Page -->
                     <a href="index.html" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Beranda</a>
                     <a href="profil.html" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Profil</a>
                     <a href="berita.html" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Berita</a>
                     <a href="#" class="text-yellow-400 border-b-2 border-yellow-400 transition-colors font-bold tracking-wide">Guru & Staff</a>
                     <a href="galeri.html" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Galeri</a>
                     <a href="index.html#faq" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">FAQ</a>
+                    <a href="portal.html" class="bg-yellow-400 text-madrasah-900 px-5 py-2 rounded-full hover:bg-yellow-300 transition-all font-bold tracking-wide shadow-md flex items-center"><i class="fa-solid fa-link mr-2"></i> Portal</a>
                 </div>
-                <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-white hover:text-yellow-400 focus:outline-none">
                         <i class="fa-solid fa-bars text-2xl"></i>
@@ -86,18 +80,16 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-madrasah-800 shadow-xl absolute w-full left-0 top-full border-t border-madrasah-700">
             <a href="index.html" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Beranda</a>
             <a href="profil.html" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Profil</a>
             <a href="berita.html" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Berita</a>
             <a href="#" class="block px-4 py-3 bg-madrasah-900 border-b border-madrasah-700 font-medium text-yellow-400">Guru & Staff</a>
-            <a href="index.html#galeri" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Galeri</a>
+            <a href="galeri.html" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Galeri</a>
             <a href="index.html#faq" class="block px-4 py-3 hover:bg-madrasah-700 font-medium">FAQ</a>
+            <a href="portal.html" class="block px-4 py-3 bg-yellow-400 text-madrasah-900 font-bold border-b border-madrasah-700 flex items-center"><i class="fa-solid fa-link mr-3"></i> Portal Layanan</a>
         </div>
     </nav>
-
-    <!-- Header (Hero Singkat) -->
     <header class="relative pt-32 pb-20 md:pt-40 md:pb-24 flex items-center justify-center text-white overflow-hidden">
         <div id="hero-bg" class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 scale-105" style="background-color: #14532d;"></div>
         <div class="absolute inset-0 bg-madrasah-900/90"></div>
@@ -108,11 +100,7 @@
             <p class="text-lg text-gray-200 max-w-2xl mx-auto font-light">Mengenal lebih dekat para pahlawan tanpa tanda jasa dan staf dedikatif di madrasah kami.</p>
         </div>
     </header>
-
-    <!-- Main Content -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full relative z-20 bg-gray-50 rounded-t-[2.5rem] -mt-12 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] mb-16 min-h-[500px]">
-        
-        <!-- Pencarian Profil -->
         <div class="max-w-2xl mx-auto mb-12">
             <div class="relative group">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
@@ -122,19 +110,12 @@
             </div>
             <p class="text-center text-sm text-gray-500 mt-3" id="search-info">Menampilkan seluruh SDM</p>
         </div>
-
         <div id="loading-guru" class="flex justify-center py-16">
             <div class="loader ease-linear rounded-full border-4 border-t-4 border-madrasah-600 h-16 w-16"></div>
         </div>
-
         <div id="error-guru" class="hidden text-center text-red-500 font-bold py-10 w-full"></div>
-
-        <!-- Grid Container Guru -->
         <div id="container-guru" class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 hidden">
-            <!-- Data akan dimuat melalui JavaScript -->
         </div>
-
-        <!-- Pesan Data Kosong -->
         <div id="empty-guru" class="hidden text-center py-12">
             <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 text-gray-400 rounded-full mb-4 text-3xl">
                 <i class="fa-solid fa-user-xmark"></i>
@@ -142,8 +123,6 @@
             <h3 class="text-xl font-bold text-gray-700 mb-2">Profil Tidak Ditemukan</h3>
             <p class="text-gray-500">Coba gunakan kata kunci lain, seperti nama panggilan atau jabatan.</p>
         </div>
-
-        <!-- Tombol Muat Lebih Banyak -->
         <div class="text-center mt-12">
             <button id="btn-load-guru" class="hidden bg-white border-2 border-madrasah-600 text-madrasah-700 font-bold py-3 px-8 rounded-full hover:bg-madrasah-600 hover:text-white transition-all shadow-sm mx-auto flex items-center">
                 Tampilkan Lebih Banyak <i class="fa-solid fa-angle-down ml-2"></i>
@@ -151,8 +130,6 @@
         </div>
 
     </main>
-
-    <!-- Footer -->
     <footer class="bg-madrasah-900 text-gray-300 py-12 mt-auto border-t-4 border-yellow-400">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-10">
             <div>
@@ -162,9 +139,9 @@
                 </h3>
                 <p class="text-sm mb-6 leading-relaxed text-gray-400" id="footer-alamat">Alamat belum tersedia.</p>
                 <div class="flex space-x-5">
-                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/mi.z.anwar.7" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@mizainulanwar" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://www.youtube.com/@mizainulanwar" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
             <div>
@@ -193,19 +170,13 @@
             &copy; <span id="current-year"></span> Hak Cipta Dilindungi. Dibangun dengan <i class="fa-solid fa-heart text-red-500 mx-1"></i> dan Teknologi Web Modern.
         </div>
     </footer>
-
-    <!-- Script API -->
     <script>
         const API_URL = "https://script.google.com/macros/s/AKfycbw53tk9OLk4e4O2LzDkKHflkwQrVdMVoiaoHSsisi-aeuA7eVBKiQgVuJLg17PNetqo/exec";
         
         document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
-
-        // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -217,13 +188,10 @@
             }
         });
 
-        // State untuk Guru & Staff
-        let allGuruData = [];      // Semua data asli dari API
-        let filteredGuruData = []; // Data setelah di filter/search
+        let allGuruData = [];
+        let filteredGuruData = [];
         let currentPage = 1;
-        const limitPerPage = 8;    // Menampilkan 8 profil (2 baris desktop) tiap muat
-
-        // Fetch Fungsi Global
+        const limitPerPage = 8;
         async function fetchData(action) {
             try {
                 const response = await fetch(`${API_URL}?action=${action}`);
@@ -237,7 +205,6 @@
             }
         }
 
-        // Muat Data Profil Umum (Navbar & Footer)
         async function loadCommonData() {
             const data = await fetchData('getProfil');
             if (data && Object.keys(data).length > 0) {
@@ -269,7 +236,6 @@
             }
         }
 
-        // Muat Semua Guru dari API
         async function loadAllGuru() {
             const container = document.getElementById('container-guru');
             const loading = document.getElementById('loading-guru');
@@ -289,7 +255,6 @@
             }
         }
 
-        // Fungsi Menampilkan Guru ke UI
         function renderGuru(isAppend = false) {
             const container = document.getElementById('container-guru');
             const btnLoad = document.getElementById('btn-load-guru');
@@ -335,7 +300,6 @@
                 container.innerHTML = htmlString;
             }
 
-            // Logika Visibilitas Tombol Load More
             if (endIndex < filteredGuruData.length) {
                 btnLoad.classList.remove('hidden');
                 btnLoad.onclick = () => {
@@ -347,7 +311,6 @@
             }
         }
 
-        // Fitur Pencarian Dinamis
         const searchInput = document.getElementById('search-input');
         const searchInfo = document.getElementById('search-info');
 
@@ -367,12 +330,10 @@
                 searchInfo.textContent = `Menemukan ${filteredGuruData.length} profil untuk "${searchTerm}"`;
             }
             
-            // Reset page dan render ulang dari awal
             currentPage = 1;
             renderGuru(false);
         });
 
-        // Inisialisasi
         document.addEventListener('DOMContentLoaded', () => {
             loadCommonData();
             loadAllGuru();
