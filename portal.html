@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Layanan - MI Zainul Anwar</title>
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1ggCDeDWm_U36NAwNXVocmeSDto6PH9LT">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        madrasah: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#064e3b',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'shimmer': 'shimmer 2s infinite linear',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        shimmer: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(200%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .loader {
+            border-top-color: #facc15;
+            -webkit-animation: spinner 1s linear infinite;
+            animation: spinner 1s linear infinite;
+        }
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-button {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-madrasah-900 min-h-screen flex flex-col items-center py-10 px-4 relative overflow-x-hidden text-white font-sans">
+    <div class="fixed top-[-10%] left-[-10%] w-72 h-72 md:w-96 md:h-96 bg-yellow-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-blob z-0"></div>
+    <div class="fixed top-[20%] right-[-10%] w-72 h-72 md:w-96 md:h-96 bg-madrasah-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-blob animation-delay-2000 z-0"></div>
+    <div class="fixed bottom-[-20%] left-[20%] w-72 h-72 md:w-96 md:h-96 bg-emerald-400 rounded-full mix-blend-multiply filter blur-[128px] opacity-30 animate-blob animation-delay-4000 z-0"></div>
+    <div class="relative z-10 w-full max-w-lg flex flex-col items-center min-h-[90vh]">
+        <a href="index.html" class="self-start group flex items-center text-sm font-medium text-white/70 hover:text-white transition-colors glass-card px-5 py-2.5 rounded-full mb-8 shadow-lg hover:shadow-xl hover:bg-white/10">
+            <i class="fa-solid fa-arrow-left-long mr-2 transform group-hover:-translate-x-1 transition-transform"></i> Kembali ke Website
+        </a>
+        <div id="loading-header" class="flex justify-center mb-8">
+            <div class="loader ease-linear rounded-full border-4 border-t-4 border-white/20 h-12 w-12"></div>
+        </div>
+        <div id="header-profil" class="flex flex-col items-center text-center w-full hidden transform transition-all duration-700 translate-y-0 opacity-100">
+            <div class="w-28 h-28 md:w-32 md:h-32 mb-6 relative group">
+                <div class="absolute inset-0 bg-yellow-400 rounded-full blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+                <img id="portal-logo" src="" alt="Logo Madrasah" class="relative w-full h-full object-contain bg-white rounded-full p-2 shadow-[0_0_30px_rgba(0,0,0,0.3)] border-4 border-white/10 z-10">
+            </div>
+            
+            <h1 id="portal-nama" class="text-2xl md:text-3xl font-extrabold mb-2 tracking-tight drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">Memuat Profil...</h1>
+            <p id="portal-desc" class="text-white/80 font-medium text-sm md:text-base max-w-sm px-4 leading-relaxed mb-10">Portal Cepat Layanan & Informasi Resmi.</p>
+        </div>
+        <div id="loading-links" class="flex justify-center py-8 w-full">
+            <div class="loader ease-linear rounded-full border-4 border-t-4 border-white/20 h-10 w-10"></div>
+        </div>
+
+        <div id="container-links" class="w-full flex flex-col space-y-4 hidden">
+        </div>
+        <div id="empty-links" class="hidden text-center py-10 w-full glass-card rounded-3xl mt-4">
+            <i class="fa-solid fa-link-slash text-4xl mb-4 text-white/30"></i>
+            <p class="text-sm font-medium text-white/70">Belum ada tautan yang ditambahkan.</p>
+        </div>
+        <footer class="mt-auto pt-16 pb-4 text-center text-white/40 text-xs font-medium w-full">
+            <p>&copy; <span id="current-year"></span> Hak Cipta Dilindungi. <span id="footer-nama-madrasah">Madrasah</span></p>
+            <p class="mt-1 flex items-center justify-center">
+                Santun <i class="fa-solid fa-bolt text-yellow-500 mx-1.5 opacity-70"></i> qurani <i class="fa-solid fa-fire text-red-500 mx-1.5 opacity-70"></i> Unggul
+            </p>
+        </footer>
+
+    </div>
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbw53tk9OLk4e4O2LzDkKHflkwQrVdMVoiaoHSsisi-aeuA7eVBKiQgVuJLg17PNetqo/exec";
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        async function fetchData(action) {
+            try {
+                const response = await fetch(`${API_URL}?action=${action}`);
+                if (!response.ok) throw new Error('Network response was not ok');
+                const result = await response.json();
+                if(result.status === "success") return result.data;
+                else return null;
+            } catch (error) {
+                console.error(`Error ${action}:`, error);
+                return null;
+            }
+        }
+
+        async function loadData() {
+            const [profilData, linksData] = await Promise.all([
+                fetchData('getProfil'),
+                fetchData('getLinks')
+            ]);
+            document.getElementById('loading-header').style.display = 'none';
+            if (profilData && Object.keys(profilData).length > 0) {
+                const headerEl = document.getElementById('header-profil');
+                headerEl.classList.remove('hidden');
+
+                if (profilData.logo_sekolah) {
+                    document.getElementById('portal-logo').src = profilData.logo_sekolah;
+                } else {
+                    document.getElementById('portal-logo').src = 'https://ui-avatars.com/api/?name=Madrasah&background=fff&color=064e3b';
+                }
+
+                if (profilData.nama_sekolah) {
+                    document.getElementById('portal-nama').textContent = profilData.nama_sekolah;
+                    document.getElementById('footer-nama-madrasah').textContent = profilData.nama_sekolah;
+                    document.title = `Portal Layanan - ${profilData.nama_sekolah}`;
+                }
+                if (profilData.visi_sekolah) {
+                     let desc = profilData.visi_sekolah;
+                     if(desc.length > 90) desc = desc.substring(0, 90) + '...';
+                     document.getElementById('portal-desc').textContent = desc;
+                }
+            }
+
+            document.getElementById('loading-links').style.display = 'none';
+            const containerLinks = document.getElementById('container-links');
+            
+            if (linksData && linksData.length > 0) {
+                containerLinks.classList.remove('hidden');
+                
+                let delay = 0;
+
+                linksData.forEach(item => {
+                    const judul = item.Judul_Link || 'Tautan Baru';
+                    const url = item.URL || '#';
+                    const icon = item.Ikon || 'fa-link';
+                    const linkHTML = `
+                        <a href="${url}" target="_blank" rel="noopener noreferrer" 
+                           class="group relative flex items-center p-4 w-full glass-button rounded-2xl shadow-lg hover:shadow-[0_8px_30px_rgba(250,204,21,0.15)] hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                           style="animation: fadeUp 0.5s ease forwards ${delay}s; opacity: 0; transform: translateY(20px);">
+                            
+                            <!-- Animasi kilau (shimmer) saat di hover -->
+                            <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:animate-shimmer skew-x-12 z-0"></div>
+                            
+                            <!-- Ikon Lingkaran Kiri -->
+                            <div class="relative z-10 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-yellow-400 group-hover:bg-yellow-400 group-hover:text-madrasah-900 transition-colors duration-300 shadow-inner mr-4">
+                                <i class="fa-solid ${icon} text-lg"></i>
+                            </div>
+                            
+                            <!-- Teks Judul Link -->
+                            <span class="relative z-10 flex-1 font-semibold text-lg tracking-wide text-left text-white group-hover:text-white">${judul}</span>
+                            
+                            <!-- Ikon Panah Kanan -->
+                            <div class="relative z-10 text-white/30 group-hover:text-yellow-400 transition-colors duration-300 group-hover:translate-x-1 transform">
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </div>
+                        </a>
+                    `;
+                    containerLinks.innerHTML += linkHTML;
+                    delay += 0.1;
+                });
+            } else {
+                document.getElementById('empty-links').classList.remove('hidden');
+            }
+        }
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeUp {
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>
