@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membaca Berita - Madrasah</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        madrasah: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d', // Hijau Tua Utama
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .loader {
+            border-top-color: #16a34a;
+            -webkit-animation: spinner 1s linear infinite;
+            animation: spinner 1s linear infinite;
+        }
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse-green {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+        .wa-pulse {
+            animation: pulse-green 2s infinite;
+        }
+        /* Styling khusus untuk konten artikel */
+        #detail-konten p {
+            margin-bottom: 1.5rem;
+        }
+        #detail-konten ul, #detail-konten ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        #detail-konten ul { list-style-type: disc; }
+        #detail-konten ol { list-style-type: decimal; }
+        #detail-konten a { color: #16a34a; text-decoration: underline; }
+    </style>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen relative">
+
+    <!-- Tombol WhatsApp Melayang -->
+    <a id="wa-floating-btn" href="#" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-all duration-300 wa-pulse hidden" title="Hubungi Kami via WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 bg-madrasah-900 shadow-lg py-2 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <img id="nav-logo" src="" alt="Logo Sekolah" class="h-10 w-10 object-contain mr-3 hidden">
+                    <i id="nav-logo-fallback" class="fa-solid fa-graduation-cap text-2xl mr-3"></i>
+                    <a href="index.html" class="font-bold text-lg sm:text-xl truncate max-w-[200px] sm:max-w-none" id="nav-nama-sekolah">Memuat...</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <!-- Tautan disesuaikan untuk Multi-Page -->
+                    <a href="index.html" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Beranda</a>
+                    <a href="profil.html" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Profil</a>
+                    <a href="berita.html" class="text-yellow-400 border-b-2 border-yellow-400 transition-colors font-bold tracking-wide">Berita</a>
+                    <a href="index.html#guru" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Guru & Staff</a>
+                    <a href="index.html#galeri" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Galeri</a>
+                    <a href="index.html#faq" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">FAQ</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-yellow-400 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-madrasah-800 shadow-xl absolute w-full left-0 top-full border-t border-madrasah-700">
+            <a href="index.html" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Beranda</a>
+            <a href="profil.html" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Profil</a>
+            <a href="berita.html" class="block px-4 py-3 bg-madrasah-900 border-b border-madrasah-700 font-medium text-yellow-400">Berita</a>
+            <a href="index.html#guru" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Guru & Staff</a>
+            <a href="index.html#galeri" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Galeri</a>
+            <a href="index.html#faq" class="block px-4 py-3 hover:bg-madrasah-700 font-medium">FAQ</a>
+        </div>
+    </nav>
+
+    <!-- Main Article Content (Ada padding top agar tidak tertutup navbar fixed) -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-32 w-full relative z-20 bg-white shadow-xl sm:rounded-2xl sm:my-10 min-h-[70vh]">
+        
+        <!-- Breadcrumb / Kembali -->
+        <div class="mb-8 border-b border-gray-100 pb-4">
+            <a href="berita.html" class="text-madrasah-600 hover:text-madrasah-800 font-semibold inline-flex items-center transition-colors">
+                <i class="fa-solid fa-arrow-left-long mr-2"></i> Kembali ke Daftar Berita
+            </a>
+        </div>
+
+        <div id="loading-detail" class="flex justify-center py-20">
+            <div class="loader ease-linear rounded-full border-4 border-t-4 border-madrasah-600 h-16 w-16"></div>
+        </div>
+
+        <!-- Tampilan Error (Jika ID tidak ada atau berita tidak ditemukan) -->
+        <div id="error-detail" class="hidden text-center py-16">
+            <i class="fa-solid fa-file-circle-xmark text-7xl text-gray-300 mb-6 block"></i>
+            <h2 class="text-3xl font-extrabold text-gray-800 mb-4">Berita Tidak Ditemukan</h2>
+            <p class="text-lg text-gray-600 mb-8">Maaf, artikel yang Anda cari mungkin telah dihapus atau tautannya salah.</p>
+            <a href="berita.html" class="inline-block bg-madrasah-600 text-white font-bold py-3 px-8 rounded-full hover:bg-madrasah-700 transition-colors shadow-md">Jelajahi Berita Lainnya</a>
+        </div>
+
+        <!-- Tampilan Konten Artikel -->
+        <article id="content-detail" class="hidden">
+            <header class="mb-8 text-center md:text-left">
+                <span id="detail-kategori" class="bg-madrasah-100 text-madrasah-700 font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-widest inline-block mb-4 border border-madrasah-200">Kategori</span>
+                <h1 id="detail-judul" class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">Memuat Judul...</h1>
+                <div class="flex items-center justify-center md:justify-start text-gray-500 font-medium">
+                    <i class="fa-regular fa-calendar-days mr-2"></i> <span id="detail-tanggal">Tanggal</span>
+                </div>
+            </header>
+
+            <figure class="w-full aspect-video rounded-3xl overflow-hidden mb-12 shadow-lg bg-gray-100 relative group">
+                <img id="detail-gambar" src="" alt="Thumbnail Berita" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </figure>
+
+            <!-- Area Teks Berita -->
+            <div id="detail-konten" class="text-lg text-gray-700 leading-relaxed text-justify">
+                <!-- Isi berita dirender di sini -->
+            </div>
+            
+            <!-- Bagikan Artikel -->
+            <div class="mt-16 pt-8 border-t-2 border-dashed border-gray-200">
+                <h4 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Bagikan Artikel Ini:</h4>
+                <div class="flex space-x-3">
+                    <button onclick="shareToWhatsApp()" class="bg-green-500 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors shadow-sm" title="Bagikan ke WhatsApp"><i class="fa-brands fa-whatsapp text-xl"></i></button>
+                    <button onclick="shareToFacebook()" class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors shadow-sm" title="Bagikan ke Facebook"><i class="fa-brands fa-facebook-f text-xl"></i></button>
+                    <button onclick="copyLink()" class="bg-gray-700 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors shadow-sm" title="Salin Tautan"><i class="fa-solid fa-link text-xl"></i></button>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-madrasah-900 text-gray-300 py-12 mt-auto border-t-4 border-yellow-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div>
+                <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                    <i class="fa-solid fa-graduation-cap mr-3 text-yellow-400"></i>
+                    <span id="footer-nama">Nama Madrasah</span>
+                </h3>
+                <p class="text-sm mb-6 leading-relaxed text-gray-400" id="footer-alamat">Alamat belum tersedia.</p>
+                <div class="flex space-x-5">
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold text-white mb-6 border-b border-madrasah-800 pb-2 inline-block">Tautan Cepat</h3>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="index.html" class="hover:text-yellow-400 flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-madrasah-500"></i> Beranda</a></li>
+                    <li><a href="profil.html" class="hover:text-yellow-400 flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-madrasah-500"></i> Profil</a></li>
+                    <li><a href="berita.html" class="hover:text-yellow-400 flex items-center text-yellow-400"><i class="fa-solid fa-chevron-right text-xs mr-2 text-madrasah-500"></i> Berita</a></li>
+                    <li><a href="guru.html" class="hover:text-yellow-400 flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-madrasah-500"></i> Guru & Staff</a></li>
+                    <li><a href="galeri.html" class="hover:text-yellow-400 flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-madrasah-500"></i> Galeri</a></li>
+                    <li><a href="#faq" class="hover:text-yellow-400 flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-madrasah-500"></i> FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold text-white mb-6 border-b border-madrasah-800 pb-2 inline-block">Hubungi Kami</h3>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-phone mt-1 mr-3 text-yellow-400"></i> 
+                        <span id="footer-telp">Memuat...</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-envelope mt-1 mr-3 text-yellow-400"></i> 
+                        <span id="footer-email">Memuat...</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-madrasah-800 mt-12 pt-8 text-center text-sm text-gray-500">
+            &copy; <span id="current-year"></span> Hak Cipta Dilindungi. Dibangun dengan <i class="fa-solid fa-heart text-red-500 mx-1"></i> dan Teknologi Web Modern.
+        </div>
+    </footer>
+
+    <!-- Script API dan Logika Halaman Detail -->
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbw53tk9OLk4e4O2LzDkKHflkwQrVdMVoiaoHSsisi-aeuA7eVBKiQgVuJLg17PNetqo/exec";
+        
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+
+        // Fetch Fungsi Global
+        async function fetchData(action) {
+            try {
+                const response = await fetch(`${API_URL}?action=${action}`);
+                if (!response.ok) throw new Error('Network response was not ok');
+                const result = await response.json();
+                if(result.status === "success") return result.data;
+                else throw new Error(result.message);
+            } catch (error) {
+                console.error(`Error ${action}:`, error);
+                return null;
+            }
+        }
+
+        // Muat Data Profil Umum (Navbar & Footer)
+        async function loadCommonData() {
+            const data = await fetchData('getProfil');
+            if (data && Object.keys(data).length > 0) {
+                if(data.logo_sekolah) {
+                    const logoEl = document.getElementById('nav-logo');
+                    logoEl.src = data.logo_sekolah;
+                    logoEl.classList.remove('hidden');
+                    document.getElementById('nav-logo-fallback').classList.add('hidden');
+                }
+                
+                if(data.nama_sekolah) {
+                    document.getElementById('nav-nama-sekolah').textContent = data.nama_sekolah;
+                    document.getElementById('footer-nama').textContent = data.nama_sekolah;
+                }
+                
+                if(data.alamat_sekolah) document.getElementById('footer-alamat').textContent = data.alamat_sekolah;
+                if(data.email_sekolah) document.getElementById('footer-email').textContent = data.email_sekolah;
+                
+                const nomorWA = data.telepon_madrasah;
+                if(nomorWA) {
+                    document.getElementById('footer-telp').textContent = nomorWA;
+                    const waBtn = document.getElementById('wa-floating-btn');
+                    let cleanNumber = nomorWA.replace(/[^0-9]/g, '');
+                    if(cleanNumber.startsWith('0')) cleanNumber = '62' + cleanNumber.substring(1);
+                    waBtn.href = `https://wa.me/${cleanNumber}?text=Assalamu%27alaikum%2C%20saya%20ingin%20bertanya%20mengenai%20informasi%20Madrasah.`;
+                    waBtn.classList.remove('hidden');
+                }
+            }
+        }
+
+        // Muat Detail Berita Spesifik berdasarkan Parameter ?id=
+        async function loadDetailBerita() {
+            // Ambil ID dari URL browser
+            const urlParams = new URLSearchParams(window.location.search);
+            const beritaId = urlParams.get('id');
+
+            const loading = document.getElementById('loading-detail');
+            const errorDiv = document.getElementById('error-detail');
+            const contentDiv = document.getElementById('content-detail');
+
+            // Jika URL tidak memiliki param ?id=
+            if (!beritaId) {
+                loading.style.display = 'none';
+                errorDiv.classList.remove('hidden');
+                return;
+            }
+
+            const data = await fetchData('getBerita');
+            loading.style.display = 'none';
+
+            if (data && data.length > 0) {
+                // Cari berita yang ID-nya cocok dengan URL
+                const beritaDitemukan = data.find(b => String(b.ID) === String(beritaId));
+
+                if (beritaDitemukan) {
+                    // Update metadata halaman
+                    document.title = `${beritaDitemukan.Judul} - Madrasah`;
+
+                    // Isi data ke DOM
+                    document.getElementById('detail-kategori').textContent = beritaDitemukan.Kategori || 'Umum';
+                    document.getElementById('detail-judul').textContent = beritaDitemukan.Judul || 'Tanpa Judul';
+                    document.getElementById('detail-tanggal').textContent = beritaDitemukan.Tanggal || '-';
+                    
+                    const fallbackImg = "https://via.placeholder.com/1200x600/16a34a/ffffff?text=Berita+Madrasah";
+                    const imgEl = document.getElementById('detail-gambar');
+                    imgEl.src = beritaDitemukan.Link_Gambar_Thumbnail || fallbackImg;
+                    imgEl.onerror = () => { imgEl.src = fallbackImg; };
+
+                    // Mengatur Konten Berita
+                    // Memungkinkan admin memasukkan HTML <p> <b> di Google Sheets. Jika tidak, enter biasa diubah jadi <br>
+                    const kontenAsli = beritaDitemukan.Konten || 'Konten berita belum tersedia.';
+                    // Mendeteksi jika sudah ada tag HTML bawaan, jika tidak, kita format line break-nya
+                    if(kontenAsli.includes('<p>') || kontenAsli.includes('<br>')) {
+                        document.getElementById('detail-konten').innerHTML = kontenAsli;
+                    } else {
+                        // Jika murni teks, ubah baris baru menjadi tag <p>
+                        const formatParagraf = kontenAsli.split('\n')
+                                                .filter(p => p.trim() !== '')
+                                                .map(p => `<p>${p}</p>`)
+                                                .join('');
+                        document.getElementById('detail-konten').innerHTML = formatParagraf;
+                    }
+
+                    // Tampilkan struktur konten
+                    contentDiv.classList.remove('hidden');
+
+                } else {
+                    // ID ada di URL, tapi tidak ditemukan di database
+                    errorDiv.classList.remove('hidden');
+                }
+            } else {
+                // Gagal fetch atau data kosong
+                errorDiv.classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // Fungsi Bagikan (Share)
+        // ==========================================
+        const currentUrl = encodeURIComponent(window.location.href);
+        
+        function getJudulForShare() {
+            return encodeURIComponent(document.getElementById('detail-judul').textContent);
+        }
+
+        function shareToWhatsApp() {
+            const text = `Baca artikel menarik ini: *${getJudulForShare()}*\n\n${decodeURIComponent(currentUrl)}`;
+            window.open(`https://wa.me/?text=${text}`, '_blank');
+        }
+
+        function shareToFacebook() {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`, '_blank', 'width=600,height=400');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Tautan artikel berhasil disalin!');
+            }).catch(err => {
+                console.error('Gagal menyalin:', err);
+                // Fallback method untuk browser tua/iframe
+                const textArea = document.createElement("textarea");
+                textArea.value = window.location.href;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    alert('Tautan artikel berhasil disalin!');
+                } catch (err) {
+                    alert('Gagal menyalin tautan secara otomatis.');
+                }
+                document.body.removeChild(textArea);
+            });
+        }
+
+        // Inisialisasi
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCommonData();
+            loadDetailBerita();
+        });
+    </script>
+</body>
+</html>
