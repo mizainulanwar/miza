@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil - MI Zainul Anwar</title>
+    <title>Profil Resmi Madrasah</title>
     <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1ggCDeDWm_U36NAwNXVocmeSDto6PH9LT">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -60,57 +60,28 @@
     </style>
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen relative">
-    <a id="wa-floating-btn" href="#" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-all duration-300 wa-pulse hidden" title="Hubungi Kami via WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-2 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <img id="nav-logo" src="" alt="Logo Sekolah" class="h-10 w-10 object-contain mr-3 hidden">
-                    <i id="nav-logo-fallback" class="fa-solid fa-graduation-cap text-2xl mr-3"></i>
-                    <a href="index.html" class="font-bold text-lg sm:text-xl truncate max-w-[200px] sm:max-w-none" id="nav-nama-sekolah">Memuat...</a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Beranda</a>
-                    <a href="#" class="text-yellow-400 border-b-2 border-yellow-400 transition-colors font-bold tracking-wide">Profil</a>
-                    <a href="berita.html" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Berita</a>
-                    <a href="guru.html" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Guru & Staff</a>
-                    <a href="galeri.html" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">Galeri</a>
-                    <a href="index.html#faq" class="hover:text-yellow-400 transition-colors font-semibold tracking-wide">FAQ</a>
-                    <a href="portal.html" class="bg-yellow-400 text-madrasah-900 px-5 py-2 rounded-full hover:bg-yellow-300 transition-all font-bold tracking-wide shadow-md flex items-center"><i class="fa-solid fa-link mr-2"></i> Portal</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-white hover:text-yellow-400 focus:outline-none">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-madrasah-800 shadow-xl absolute w-full left-0 top-full border-t border-madrasah-700">
-            <a href="index.html" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Beranda</a>
-            <a href="#" class="block px-4 py-3 bg-madrasah-900 border-b border-madrasah-700 font-medium text-yellow-400">Profil</a>
-            <a href="berita.html" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Berita</a>
-            <a href="guru.html" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Guru & Staff</a>
-            <a href="galeri.html" class="block px-4 py-3 hover:bg-madrasah-700 border-b border-madrasah-700 font-medium">Galeri</a>
-            <a href="index.html#faq" class="block px-4 py-3 hover:bg-madrasah-700 font-medium">FAQ</a>
-            <a href="portal.html" class="block px-4 py-3 bg-yellow-400 text-madrasah-900 font-bold border-b border-madrasah-700 flex items-center"><i class="fa-solid fa-link mr-3"></i> Portal Layanan</a>
-        </div>
-    </nav>
+    <div id="wa-wrapper"></div>
+    <div id="navbar-wrapper"></div>
+
     <header class="relative pt-32 pb-20 md:pt-40 md:pb-24 flex items-center justify-center text-white overflow-hidden">
         <div id="hero-bg" class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 scale-105" style="background-color: #14532d;"></div>
         <div class="absolute inset-0 bg-madrasah-900/90"></div>
+
         <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
             <span class="inline-block py-1.5 px-5 rounded-full bg-yellow-400/20 text-yellow-400 font-bold text-sm tracking-widest mb-4 uppercase border border-yellow-400/50">Tentang Kami</span>
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 tracking-tight drop-shadow-xl" id="hero-title">Profil Madrasah</h1>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 tracking-tight drop-shadow-xl">Profil Madrasah</h1>
             <p class="text-lg text-gray-200 max-w-2xl mx-auto font-light">Mengenal lebih dekat sejarah, visi, misi, dan identitas lembaga kami.</p>
         </div>
     </header>
+
     <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full relative z-20 bg-white rounded-t-[2.5rem] -mt-12 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] mb-16">
+        
         <div id="loading-profil" class="flex justify-center py-16">
             <div class="loader ease-linear rounded-full border-4 border-t-4 border-madrasah-600 h-16 w-16"></div>
         </div>
+
         <div id="container-profil" class="hidden space-y-20">
+            
             <section id="sambutan" class="scroll-mt-24">
                 <div class="flex flex-col md:flex-row items-center md:items-start gap-10">
                     <div class="w-56 h-56 md:w-72 md:h-72 flex-shrink-0 relative">
@@ -127,6 +98,7 @@
                     </div>
                 </div>
             </section>
+
             <section id="sejarah-section" class="hidden scroll-mt-24">
                 <div class="bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100">
                     <div class="flex items-center mb-6">
@@ -139,6 +111,7 @@
                     </div>
                 </div>
             </section>
+
             <section id="visi-misi" class="scroll-mt-24">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-extrabold text-madrasah-900 mb-2">Visi & Misi</h2>
@@ -152,6 +125,7 @@
                         </h3>
                         <p id="profil-visi" class="text-xl leading-relaxed relative z-10 font-medium text-gray-50"></p>
                     </div>
+
                     <div class="bg-white rounded-3xl shadow-lg p-10 border border-gray-100 relative overflow-hidden">
                         <i class="fa-solid fa-bullseye absolute -right-4 -bottom-4 text-8xl text-gray-50 opacity-80"></i>
                         <h3 class="text-2xl font-bold text-madrasah-900 mb-6 flex items-center relative z-10">
@@ -162,6 +136,7 @@
                     </div>
                 </div>
             </section>
+
             <section id="info-tambahan" class="scroll-mt-24 border-t-2 border-dashed border-gray-200 pt-16">
                 <div class="text-center mb-10">
                     <h2 class="text-2xl font-bold text-madrasah-900 mb-2">Informasi Administrasi Kelembagaan</h2>
@@ -173,110 +148,20 @@
 
         </div>
     </main>
-    <footer class="bg-madrasah-900 text-gray-300 py-12 mt-auto border-t-4 border-yellow-400">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div>
-                <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
-                    <i class="fa-solid fa-graduation-cap mr-3 text-yellow-400"></i>
-                    <span id="footer-nama">Nama Madrasah</span>
-                </h3>
-                <p class="text-sm mb-6 leading-relaxed text-gray-400" id="footer-alamat">Alamat belum tersedia.</p>
-                <div class="flex space-x-5">
-                    <a href="https://www.facebook.com/mi.z.anwar.7" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.tiktok.com/@mizainulanwar" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="https://www.youtube.com/@mizainulanwar" class="text-gray-400 hover:text-yellow-400 transition-colors bg-madrasah-800 p-3 rounded-full w-10 h-10 flex items-center justify-center"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-            </div>
-            <div>
-                <h3 class="text-lg font-bold text-white mb-6 border-b border-madrasah-800 pb-2 inline-block">Tautan Cepat</h3>
-                <ul class="space-y-3 text-sm">
-                    <li><a href="index.html" class="hover:text-yellow-400 flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-madrasah-500"></i> Beranda</a></li>
-                    <li><a href="#" class="hover:text-yellow-400 flex items-center text-yellow-400"><i class="fa-solid fa-chevron-right text-xs mr-2 text-madrasah-500"></i> Profil</a></li>
-                    <li><a href="index.html#berita" class="hover:text-yellow-400 flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-madrasah-500"></i> Berita</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-lg font-bold text-white mb-6 border-b border-madrasah-800 pb-2 inline-block">Hubungi Kami</h3>
-                <ul class="space-y-4 text-sm">
-                    <li class="flex items-start">
-                        <i class="fa-solid fa-phone mt-1 mr-3 text-yellow-400"></i> 
-                        <span id="footer-telp">Memuat...</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fa-solid fa-envelope mt-1 mr-3 text-yellow-400"></i> 
-                        <span id="footer-email">Memuat...</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="border-t border-madrasah-800 mt-12 pt-8 text-center text-sm text-gray-500">
-            &copy; <span id="current-year"></span> Hak Cipta Dilindungi. Dibangun dengan <i class="fa-solid fa-heart text-red-500 mx-1"></i> dan Teknologi Web Modern.
-        </div>
-    </footer>
+    <div id="footer-wrapper"></div>
+    <script src="assets/js/api.js"></script>
     <script>
-        const API_URL = "https://script.google.com/macros/s/AKfycbw53tk9OLk4e4O2LzDkKHflkwQrVdMVoiaoHSsisi-aeuA7eVBKiQgVuJLg17PNetqo/exec";
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('bg-madrasah-900', 'shadow-lg');
-                nav.classList.remove('bg-transparent', 'py-2');
-            } else {
-                nav.classList.add('bg-transparent', 'py-2');
-                nav.classList.remove('bg-madrasah-900', 'shadow-lg');
-            }
-        });
-
-        async function fetchData(action) {
-            try {
-                const response = await fetch(`${API_URL}?action=${action}`);
-                if (!response.ok) throw new Error('Network response was not ok');
-                const result = await response.json();
-                if(result.status === "success") return result.data;
-                else return null;
-            } catch (error) {
-                console.error(`Error ${action}:`, error);
-                return null;
-            }
-        }
-
         async function loadProfilPage() {
-            const data = await fetchData('getProfil');
+            const data = await loadCommonProfilData(); 
+            
             document.getElementById('loading-profil').style.display = 'none';
             const container = document.getElementById('container-profil');
             container.classList.remove('hidden');
 
             if (data && Object.keys(data).length > 0) {
-                if(data.logo_sekolah) {
-                    const logoEl = document.getElementById('nav-logo');
-                    logoEl.src = data.logo_sekolah;
-                    logoEl.classList.remove('hidden');
-                    document.getElementById('nav-logo-fallback').classList.add('hidden');
-                }
-                if(data.bg_hero_section) document.getElementById('hero-bg').style.backgroundImage = `url('${data.bg_hero_section}')`;
                 
-                if(data.nama_sekolah) {
-                    document.getElementById('nav-nama-sekolah').textContent = data.nama_sekolah;
-                    document.getElementById('hero-title').textContent = data.nama_sekolah;
-                    document.getElementById('footer-nama').textContent = data.nama_sekolah;
-                }
-                if(data.alamat_sekolah) document.getElementById('footer-alamat').textContent = data.alamat_sekolah;
-                if(data.email_sekolah) document.getElementById('footer-email').textContent = data.email_sekolah;
-                
-                const nomorWA = data.telepon_madrasah;
-                if(nomorWA) {
-                    document.getElementById('footer-telp').textContent = nomorWA;
-                    const waBtn = document.getElementById('wa-floating-btn');
-                    let cleanNumber = nomorWA.replace(/[^0-9]/g, '');
-                    if(cleanNumber.startsWith('0')) cleanNumber = '62' + cleanNumber.substring(1);
-                    waBtn.href = `https://wa.me/${cleanNumber}?text=Assalamu%27alaikum%2C%20saya%20ingin%20bertanya%20mengenai%20informasi%20Madrasah.`;
-                    waBtn.classList.remove('hidden');
-                }
                 if(data.isi_sambutan) {
-                    const formatSambutan = data.isi_sambutan.replace(/\n/g, '<br><br>');
+                    const formatSambutan = String(data.isi_sambutan).replace(/\n/g, '<br><br>');
                     document.getElementById('profil-sambutan').innerHTML = formatSambutan;
                 }
                 if(data.nama_kepala_sekolah) document.getElementById('profil-nama-kepsek').textContent = data.nama_kepala_sekolah;
@@ -287,13 +172,14 @@
                 } else {
                     fotoKepsekEl.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(data.nama_kepala_sekolah || 'Kepala Sekolah')}&background=16a34a&color=fff&size=512`;
                 }
+
                 if(data.visi_sekolah) document.getElementById('profil-visi').textContent = data.visi_sekolah;
                 if(data.misi_sekolah) {
                     const containerMisi = document.getElementById('profil-misi-container');
                     const ul = document.createElement('ul');
                     ul.className = "list-decimal list-inside space-y-3 font-medium misi-list text-justify";
                     
-                    const barisMisi = data.misi_sekolah.split('\n');
+                    const barisMisi = String(data.misi_sekolah).split('\n');
                     barisMisi.forEach(misiText => {
                         const teksBersih = misiText.trim();
                         if(teksBersih !== '') {
@@ -305,17 +191,19 @@
                     });
                     containerMisi.appendChild(ul);
                 }
+
                 if(data.sejarah || data.sejarah_singkat) {
                     const sejarahText = data.sejarah || data.sejarah_singkat;
-                    const formatSejarah = sejarahText.replace(/\n/g, '<br><br>');
+                    const formatSejarah = String(sejarahText).replace(/\n/g, '<br><br>');
                     document.getElementById('profil-sejarah').innerHTML = `<p>${formatSejarah}</p>`;
                     document.getElementById('sejarah-section').classList.remove('hidden');
                 }
+
                 const keysDikecualikan = [
                     'logo_sekolah', 'bg_hero_section', 'visi_sekolah', 'misi_sekolah', 
                     'isi_sambutan', 'nama_kepala_sekolah', 'foto_kepala_sekolah', 
                     'nama_sekolah', 'singkatan', 'alamat_sekolah', 'telepon_madrasah', 'email_sekolah',
-                    'link_embed_peta', 'sejarah_singkat', 'latar_belakang_singkat'
+                    'link_embed_peta', 'latar_belakang_singkat', 'sejarah_singkat', 'telepon_sekolah'
                 ];
 
                 const containerLainnya = document.getElementById('profil-lainnya');
@@ -344,7 +232,11 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', loadProfilPage);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderLayout();
+            loadProfilPage();
+        });
     </script>
 </body>
 </html>
