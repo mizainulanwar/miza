@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validasi Surat Madrasah | MIZA</title>
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1ggCDeDWm_U36NAwNXVocmeSDto6PH9LT">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -19,11 +20,9 @@
     <div class="max-w-lg w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
         <!-- Header -->
         <div class="bg-emerald-700 p-6 text-center text-white">
-            <svg class="w-12 h-12 mx-auto mb-3 text-emerald-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-            </svg>
+            <img src="https://lh3.googleusercontent.com/d/1nn76pgqhGHG_hfj_ASbSEPgQiaDs93S8" alt="Logo Lembaga" class="h-16 w-auto mx-auto mb-3 object-contain">
             <h1 class="text-2xl font-bold tracking-wide">Portal Validasi E-Surat</h1>
-            <p class="text-emerald-100 text-sm mt-1">Sistem Verifikasi Dokumen Resmi Madrasah</p>
+            <p class="text-emerald-100 text-sm mt-1">Sistem Verifikasi Dokumen Resmi MI Zainul Anwar</p>
         </div>
 
         <!-- Content Area -->
@@ -37,24 +36,22 @@
         
         <!-- Footer -->
         <div class="bg-gray-50 p-4 text-center border-t border-gray-100">
-            <p class="text-xs text-gray-500">© <span id="year"></span> Sistem Surat Madrasah Terintegrasi</p>
+            <p class="text-xs text-gray-500">© <span id="year"></span> Sistem Surat Terintegrasi</p>
+            <p class="text-xs text-gray-500">Madrasah Ibtidaiyah Zainul Anwar</p>
         </div>
     </div>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
         
-        // URL disandikan (Base64) agar tidak langsung terbaca di source code
         const encodedUrl = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J4d2VPRHRoRTZSckRhMmNiRHZsWkVibDJkaERmSzRXUXJLZlRKNHM4QWRLajNJLWV1bGh3Y2xaNXNaRlMzY29iRHkvZXhlYw==";
         const GAS_API_URL = atob(encodedUrl);
 
         window.onload = function() {
-            // Mengambil token "?verify=" dari URL Browser GitHub Pages
             const urlParams = new URLSearchParams(window.location.search);
             const token = urlParams.get('verify');
 
             if(token) {
-                // Fetch data dari Google Apps Script sebagai JSON
                 fetch(`${GAS_API_URL}?api=true&verify=${token}`)
                     .then(response => response.json())
                     .then(data => tampilkanHasil(data))
@@ -99,6 +96,14 @@
                                 <p class="text-xs text-gray-500 font-bold uppercase">Dibuat Oleh</p>
                                 <p class="text-sm text-gray-800">${res.pembuat}</p>
                             </div>
+                        </div>
+
+                        <!-- Tombol Lihat Dokumen -->
+                        <div class="mt-6 text-center">
+                            <a href="${res.finalUrl}" target="_blank" class="inline-flex items-center justify-center w-full px-4 py-2.5 text-sm font-semibold text-white transition-colors bg-emerald-600 rounded-lg hover:bg-emerald-700 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-1 shadow-sm">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                Lihat Dokumen Asli
+                            </a>
                         </div>
                     </div>
                 `;
