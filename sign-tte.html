@@ -44,8 +44,9 @@
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
         
-        // PENTING: Ganti URL ini dengan URL Deployment /exec Google Apps Script Anda
-        const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxweODthE6RrDa2cbDvlZEbl2dhDfK4WQrKfTJ4s8AdKj3I-eulhwclZ5sZFS3cobDy/exec";
+        // URL disandikan (Base64) agar tidak langsung terbaca di source code
+        const encodedUrl = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J4d2VPRHRoRTZSckRhMmNiRHZsWkVibDJkaERmSzRXUXJLZlRKNHM4QWRLajNJLWV1bGh3Y2xaNXNaRlMzY29iRHkvZXhlYw==";
+        const GAS_API_URL = atob(encodedUrl);
 
         window.onload = function() {
             // Mengambil token "?verify=" dari URL Browser GitHub Pages
